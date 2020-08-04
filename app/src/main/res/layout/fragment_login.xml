@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/vHeaderImage"
+        android:layout_width="match_parent"
+        android:layout_height="204dp"
+        android:layout_marginBottom="68dp"
+        android:scaleType="fitXY"
+        android:background="@drawable/login_cover"
+        android:src="@drawable/wolox_colors_gradient"
+        app:layout_constraintTop_toTopOf="parent"></ImageView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/vLoginButton"
+        app:layout_constraintTop_toTopOf="@id/vHeaderImage">
+
+        <ImageView
+            android:id="@+id/vWoloxLogoImage"
+            android:layout_width="match_parent"
+            android:layout_height="145dp"
+            app:srcCompat="@drawable/wolox_logo_large"></ImageView>
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/vFirstNameInput"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="90dp"
+        android:layout_marginRight="16dp"
+        android:hint="@string/fragment_login_firstname"
+        android:inputType="text"
+        app:layout_constraintTop_toBottomOf="@id/vHeaderImage"></EditText>
+
+    <EditText
+        android:id="@+id/vLastNameInput"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:hint="@string/fragment_login_lastname"
+        android:inputType="text"
+        app:layout_constraintTop_toBottomOf="@id/vFirstNameInput"></EditText>
+
+    <Button
+        android:id="@+id/vLoginButton"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="16dp"
+        android:background="@color/colorWhite"
+        android:text="@string/fragment_login_button_log_in"
+        app:layout_constraintTop_toBottomOf="@id/vLastNameInput"></Button>
+
+    <Button
+        android:id="@+id/vSignUpButton"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="16dp"
+        android:background="@color/colorBlueButton"
+        android:text="@string/fragment_login_button_sign_up"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintTop_toBottomOf="@+id/vLoginButton"></Button>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/vSignUpButton">
+        <TextView
+            android:id="@+id/vTextTermsAndConditions"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/login_terms_and_conditions_text"
+            android:textSize="14sp">
+        </TextView>
+        <TextView
+            android:id="@+id/vLinkTermsAndConditions"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="2dp"
+            android:text="@string/login_terms_and_conditions_link"
+            android:textSize="14sp"></TextView>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
