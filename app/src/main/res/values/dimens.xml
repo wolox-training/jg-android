@@ -46,4 +46,10 @@
     <dimen name="font_huge">24sp</dimen>
 
     <!-- Add your custom dimens here -->
+    <!-- Login -->
+    <dimen name="login_header_image_height">204dp</dimen>
+    <dimen name="login_header_image_margin_bottom">68dp</dimen>
+    <dimen name="login_wolox_logo_image">145dp</dimen>
+    <dimen name="login_medium_height">50dp</dimen>
+    <dimen name="login_text_input_margin_top">90dp</dimen>
 </resources>
