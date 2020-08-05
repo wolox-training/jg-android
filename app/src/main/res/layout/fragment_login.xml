@@ -71,27 +71,27 @@
         app:layout_constraintTop_toBottomOf="@+id/vLoginButton" />
 
     <TextView
-        android:id="@+id/vTextTermsAndConditions"
+        android:id="@+id/vLoginTermsAndConditionsText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
+        android:layout_marginStart="@dimen/static_spacing_huge"
         android:text="@string/login_terms_and_conditions_text"
         android:textSize="@dimen/font_medium_more"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/vLinkTermsAndConditions"
+        app:layout_constraintEnd_toStartOf="@id/vLoginTermsAndConditionsLinks"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/vSignUpButton" />
 
     <TextView
-        android:id="@+id/vLinkTermsAndConditions"
+        android:id="@+id/vLoginTermsAndConditionsLinks"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="48dp"
+        android:layout_marginEnd="@dimen/static_spacing_huge"
         android:text="@string/login_terms_and_conditions_link"
         android:textSize="@dimen/font_medium_more"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/vTextTermsAndConditions"
+        app:layout_constraintStart_toEndOf="@id/vLoginTermsAndConditionsText"
         app:layout_constraintTop_toBottomOf="@id/vSignUpButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
