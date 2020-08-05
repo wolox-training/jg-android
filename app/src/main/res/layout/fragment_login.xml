@@ -27,25 +27,25 @@
         app:srcCompat="@drawable/wolox_logo_large" />
 
     <EditText
-        android:id="@+id/vLoginFirstName"
+        android:id="@+id/vLoginEmail"
         android:layout_width="match_parent"
         android:layout_height="@dimen/login_medium_height"
         android:layout_marginLeft="@dimen/static_spacing_medium_extra"
         android:layout_marginTop="@dimen/login_text_input_margin_top"
         android:layout_marginRight="@dimen/static_spacing_medium_extra"
-        android:hint="@string/login_firstname"
-        android:inputType="text"
+        android:hint="@string/login_email"
+        android:inputType="textEmailAddress"
         app:layout_constraintTop_toBottomOf="@id/vLoginHeaderImage" />
 
     <EditText
-        android:id="@+id/vLoginLastName"
+        android:id="@+id/vLoginPassword"
         android:layout_width="match_parent"
         android:layout_height="@dimen/login_medium_height"
         android:layout_marginLeft="@dimen/static_spacing_medium_extra"
         android:layout_marginRight="@dimen/static_spacing_medium_extra"
-        android:hint="@string/login_lastname"
-        android:inputType="text"
-        app:layout_constraintTop_toBottomOf="@id/vLoginFirstName" />
+        android:hint="@string/login_password"
+        android:inputType="textPassword"
+        app:layout_constraintTop_toBottomOf="@id/vLoginEmail" />
 
     <Button
         android:id="@+id/vLoginButton"
@@ -56,7 +56,7 @@
         android:layout_marginRight="@dimen/static_spacing_medium_extra"
         android:background="@color/colorWhite"
         android:text="@string/login_button_log_in"
-        app:layout_constraintTop_toBottomOf="@id/vLoginLastName" />
+        app:layout_constraintTop_toBottomOf="@id/vLoginPassword" />
 
     <Button
         android:id="@+id/vSignUpButton"

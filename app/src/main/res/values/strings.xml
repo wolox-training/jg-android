@@ -19,8 +19,8 @@
     <!-- Login -->
     <string name="login_terms_and_conditions_text">By joining you agree to our</string>
     <string name="login_terms_and_conditions_link"><u>Terms &amp; Conditions</u></string>
-    <string name="login_firstname">First Name (recommended)</string>
-    <string name="login_lastname">Last Name (recommended)</string>
+    <string name="login_email">Email</string>
+    <string name="login_password">Password</string>
     <string name="login_button_log_in">Log In</string>
     <string name="login_button_sign_up">Sign Up</string>
 
