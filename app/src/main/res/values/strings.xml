@@ -13,8 +13,15 @@
     <string name="fragment_example_username">Username</string>
     <string name="fragment_example_favourite_color">Your favourite color</string>
     <string name="fragment_example_login">Login</string>
-	<string name="fragment_request_search">Search</string>
+    <string name="fragment_request_search">Search</string>
     <string name="fragment_request_post_id">Post id</string>
     <string name="fragment_request_invalid_input">Invalid input, please enter a valid id.</string>
+    <!-- Login -->
+    <string name="login_terms_and_conditions_text">By joining you agree to our</string>
+    <string name="login_terms_and_conditions_link"><u>Terms &amp; Conditions</u></string>
+    <string name="login_email">Email</string>
+    <string name="login_password">Password</string>
+    <string name="login_button_log_in">Log In</string>
+    <string name="login_button_sign_up">Sign Up</string>
 
 </resources>

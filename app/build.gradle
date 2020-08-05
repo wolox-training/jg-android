@@ -22,7 +22,7 @@ android {
     buildToolsVersion '29.0.2'
 
     defaultConfig {
-        applicationId "ar.com.wolox.android.example"
+        applicationId "ar.com.wolox.android.training"
         minSdkVersion 19
         targetSdkVersion 29
         multiDexEnabled true
