@@ -25,35 +25,33 @@ public class LoginPresenter extends BasePresenter<ILoginView> {
             return;
         }
 
-        userSession.setUseremail(email);
+        userSession.setEmail(email);
         getView().goToHome();
     }
 
     /**
      * Check if exists error fields
-     * @param email type EditText
+     *
+     * @param email    type EditText
      * @param password type EditText
      * @return boolean
-     * **/
+     **/
     protected boolean existFieldErrors(String email, String password) {
         boolean error = false;
 
-        // Validate password
         if (password.isEmpty()) {
             getView().showPasswordEmptyError();
             error = true;
         }
 
-        // Validate empty email
         if (email.isEmpty()) {
             getView().showEmailEmptyError();
             error = true;
-        }
-
-        // Validate forat email
-        if (!isValidFormatEmail(email)) {
-            getView().showEmailFormatError();
-            error = true;
+        } else {
+            if (!isValidFormatEmail(email)) {
+                getView().showEmailFormatError();
+                error = true;
+            }
         }
 
         return error;
@@ -61,9 +59,10 @@ public class LoginPresenter extends BasePresenter<ILoginView> {
 
     /**
      * Check format email
+     *
      * @param email type String
      * @return boolean
-     * **/
+     **/
     protected boolean isValidFormatEmail(String email) {
         String emailRegex = "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$";
         Pattern pattern = Pattern.compile(emailRegex, Pattern.CASE_INSENSITIVE);
