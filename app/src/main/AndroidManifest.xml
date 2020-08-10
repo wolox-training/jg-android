@@ -8,20 +8,24 @@
         android:name=".example.TrainingApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:roundIcon="@mipmap/ic_launcher_round"
         android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
         android:theme="@style/AppTheme">
 
-        <activity
-            android:name=".example.ui.login.LoginActivity"
-            android:screenOrientation="portrait">
-
+        <activity android:name=".example.ui.login.WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
+
+        <activity
+            android:name=".example.ui.login.LoginActivity"
+            android:screenOrientation="portrait"></activity>
+
+        <activity
+            android:name=".example.ui.login.HomeActivity"
+            android:screenOrientation="portrait"></activity>
 
     </application>
 
