@@ -79,12 +79,12 @@
         android:text="@string/login_terms_and_conditions_text"
         android:textSize="@dimen/font_medium_more"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/vLoginTermsAndConditionsLinks"
+        app:layout_constraintEnd_toStartOf="@id/vLoginTermsAndConditionsLink"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/vSignUpButton" />
 
     <TextView
-        android:id="@+id/vLoginTermsAndConditionsLinks"
+        android:id="@+id/vLoginTermsAndConditionsLink"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/static_spacing_huge"

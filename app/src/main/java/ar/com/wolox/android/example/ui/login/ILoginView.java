@@ -5,8 +5,6 @@ package ar.com.wolox.android.example.ui.login;
  **/
 public interface ILoginView {
 
-    void openBrowser(String url);
-
     void showEmailEmptyError();
 
     void showPasswordEmptyError();
@@ -14,4 +12,6 @@ public interface ILoginView {
     void showEmailFormatError();
 
     void goToHome();
+
+    void goToSignUp();
 }

@@ -16,5 +16,8 @@ abstract class LoginModule {
     internal abstract fun homeActivity(): HomeActivity
 
     @ContributesAndroidInjector
+    internal abstract fun signUpActivity(): SignUpActivity
+
+    @ContributesAndroidInjector
     internal abstract fun loginFragment(): LoginFragment
 }
