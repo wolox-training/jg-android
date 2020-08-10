@@ -23,7 +23,7 @@ public class WelcomeActivity extends WolmoActivity {
     protected void init() {
         Intent intent;
 
-        if (userSession.getUseremail() != null) {
+        if (userSession.isUserLogged()) {
             intent = new Intent(this, HomeActivity.class);
         } else {
             intent = new Intent(this, LoginActivity.class);

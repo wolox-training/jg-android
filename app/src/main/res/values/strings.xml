@@ -26,5 +26,6 @@
     <string name="login_email_empty">The email is required</string>
     <string name="login_email_format">Invalid format</string>
     <string name="login_password_empty">The password is required</string>
+    <string name="welcome_to_home">Welcome to home!!</string>
 
 </resources>
