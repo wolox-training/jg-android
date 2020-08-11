@@ -1,9 +1,11 @@
-package ar.com.wolox.android.example.ui.login;
+package ar.com.wolox.android.example.ui.welcome;
 
 import android.content.Intent;
 
 import javax.inject.Inject;
 
+import ar.com.wolox.android.example.ui.home.HomeActivity;
+import ar.com.wolox.android.example.ui.login.LoginActivity;
 import ar.com.wolox.android.example.utils.UserSession;
 import ar.com.wolox.wolmo.core.activity.WolmoActivity;
 import ar.com.wolox.android.R;

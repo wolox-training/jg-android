@@ -6,6 +6,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import ar.com.wolox.android.R;
+import ar.com.wolox.android.example.ui.home.HomeActivity;
+import ar.com.wolox.android.example.ui.signup.SignUpActivity;
 import ar.com.wolox.wolmo.core.fragment.WolmoFragment;
 
 /**
@@ -17,6 +19,7 @@ public class LoginFragment extends WolmoFragment<LoginPresenter> implements ILog
     private Button signUpButton;
     private EditText email;
     private EditText password;
+    private TextView termsAndConditionsLink;
 
     @Override
     public void init() {
@@ -24,7 +27,7 @@ public class LoginFragment extends WolmoFragment<LoginPresenter> implements ILog
         signUpButton = (Button) getView().findViewById(R.id.vSignUpButton);
         email = (EditText) getView().findViewById(R.id.vLoginEmail);
         password = (EditText) getView().findViewById(R.id.vLoginPassword);
-        TextView termsAndConditionsLink = (TextView) getView().findViewById(R.id.vLoginTermsAndConditionsLink);
+        termsAndConditionsLink = (TextView) getView().findViewById(R.id.vLoginTermsAndConditionsLink);
         termsAndConditionsLink.setMovementMethod(LinkMovementMethod.getInstance());
     }
 
