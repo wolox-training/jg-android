@@ -29,6 +29,10 @@ public class LoginPresenter extends BasePresenter<ILoginView> {
         getView().goToHome();
     }
 
+    public void onSignUpButtonClicked() {
+        getView().goToSignUp();
+    }
+
     /**
      * Check if exists error fields
      *

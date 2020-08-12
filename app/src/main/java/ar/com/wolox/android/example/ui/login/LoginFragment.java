@@ -1,9 +1,13 @@
 package ar.com.wolox.android.example.ui.login;
 
+import android.text.method.LinkMovementMethod;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import ar.com.wolox.android.R;
+import ar.com.wolox.android.example.ui.home.HomeActivity;
+import ar.com.wolox.android.example.ui.signup.SignUpActivity;
 import ar.com.wolox.wolmo.core.fragment.WolmoFragment;
 
 /**
@@ -12,23 +16,24 @@ import ar.com.wolox.wolmo.core.fragment.WolmoFragment;
 public class LoginFragment extends WolmoFragment<LoginPresenter> implements ILoginView {
 
     private Button loginButton;
+    private Button signUpButton;
     private EditText email;
     private EditText password;
+    private TextView termsAndConditionsLink;
 
     @Override
     public void init() {
         loginButton = (Button) getView().findViewById(R.id.vLoginButton);
+        signUpButton = (Button) getView().findViewById(R.id.vSignUpButton);
         email = (EditText) getView().findViewById(R.id.vLoginEmail);
         password = (EditText) getView().findViewById(R.id.vLoginPassword);
+        termsAndConditionsLink = (TextView) getView().findViewById(R.id.vLoginTermsAndConditionsLink);
+        termsAndConditionsLink.setMovementMethod(LinkMovementMethod.getInstance());
     }
 
     @Override
     public int layout() {
         return R.layout.fragment_login;
-    }
-
-    @Override
-    public void openBrowser(String url) {
     }
 
     @Override
@@ -52,8 +57,14 @@ public class LoginFragment extends WolmoFragment<LoginPresenter> implements ILog
     }
 
     @Override
+    public void goToSignUp() {
+        SignUpActivity.start(requireContext());
+    }
+
+    @Override
     public void setListeners() {
         loginButton.setOnClickListener((view) -> getPresenter().onLoginButtonClicked(
                 email.getText().toString().trim(), password.getText().toString().trim()));
+        signUpButton.setOnClickListener((view -> getPresenter().onSignUpButtonClicked()));
     }
 }
