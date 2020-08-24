@@ -14,4 +14,12 @@ public interface ILoginView {
     void goToHome();
 
     void goToSignUp();
+
+    void showInvalidCredentialsMessage();
+
+    void showNetworkErrorMessage();
+
+    void showProgressBar();
+
+    void hideProgressBar();
 }
