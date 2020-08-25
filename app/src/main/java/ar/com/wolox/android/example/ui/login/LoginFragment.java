@@ -68,14 +68,14 @@ public class LoginFragment extends WolmoFragment<LoginPresenter> implements ILog
 
     @Override
     public void showInvalidCredentialsMessage() {
-        CharSequence message = "Invalid email or password";
+        CharSequence message = requireContext().getString(R.string.login_invalid_email_password);
         Toast toast = Toast.makeText(getContext(), message, Toast.LENGTH_SHORT);
         toast.show();
     }
 
     @Override
     public void showNetworkErrorMessage() {
-        CharSequence message = "Network error, please try again later";
+        CharSequence message = requireContext().getString(R.string.login_network_error);
         Toast toast = Toast.makeText(getContext(), message, Toast.LENGTH_SHORT);
         toast.show();
     }
