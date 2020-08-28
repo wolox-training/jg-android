@@ -1,9 +1,12 @@
 package ar.com.wolox.android.example.ui.login;
 
 import android.text.method.LinkMovementMethod;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import ar.com.wolox.android.R;
 import ar.com.wolox.android.example.ui.home.HomeActivity;
@@ -20,6 +23,7 @@ public class LoginFragment extends WolmoFragment<LoginPresenter> implements ILog
     private EditText email;
     private EditText password;
     private TextView termsAndConditionsLink;
+    private ProgressBar progressBar;
 
     @Override
     public void init() {
@@ -29,6 +33,7 @@ public class LoginFragment extends WolmoFragment<LoginPresenter> implements ILog
         password = (EditText) getView().findViewById(R.id.vLoginPassword);
         termsAndConditionsLink = (TextView) getView().findViewById(R.id.vLoginTermsAndConditionsLink);
         termsAndConditionsLink.setMovementMethod(LinkMovementMethod.getInstance());
+        progressBar = (ProgressBar) getView().findViewById(R.id.vProgressBar);
     }
 
     @Override
@@ -59,6 +64,30 @@ public class LoginFragment extends WolmoFragment<LoginPresenter> implements ILog
     @Override
     public void goToSignUp() {
         SignUpActivity.start(requireContext());
+    }
+
+    @Override
+    public void showInvalidCredentialsMessage() {
+        CharSequence message = requireContext().getString(R.string.login_invalid_email_password);
+        Toast toast = Toast.makeText(getContext(), message, Toast.LENGTH_SHORT);
+        toast.show();
+    }
+
+    @Override
+    public void showNetworkErrorMessage() {
+        CharSequence message = requireContext().getString(R.string.login_network_error);
+        Toast toast = Toast.makeText(getContext(), message, Toast.LENGTH_SHORT);
+        toast.show();
+    }
+
+    @Override
+    public void showProgressBar() {
+        progressBar.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void hideProgressBar() {
+        progressBar.setVisibility(View.INVISIBLE);
     }
 
     @Override

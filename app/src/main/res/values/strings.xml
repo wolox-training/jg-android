@@ -28,5 +28,7 @@
     <string name="login_email_empty">The email is required</string>
     <string name="login_email_format">Invalid format</string>
     <string name="login_password_empty">The password is required</string>
+    <string name="login_invalid_email_password">Invalid email or password</string>
+    <string name="login_network_error">Network error, please try again later</string>
 
 </resources>
