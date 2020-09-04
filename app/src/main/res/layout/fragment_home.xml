@@ -8,14 +8,54 @@
     android:gravity="center"
     android:orientation="vertical">
 
+    <ImageView
+        android:id="@+id/vWoloxImage"
+        android:layout_width="@dimen/home_wolox_image_width"
+        android:layout_height="@dimen/home_wolox_image_height"
+        android:layout_marginStart="@dimen/spacing_large"
+        android:layout_marginTop="@dimen/spacing_large"
+        app:layout_constraintBottom_toTopOf="@+id/vTabLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/wolox_logo_large" />
+
     <TextView
+        android:id="@+id/vWoloxText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="@string/wolox_title"
+        app:layout_constraintStart_toEndOf="@+id/vWoloxImage"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="@dimen/spacing_large_extra"
+        android:textSize="@dimen/font_huge"
+        android:textColor="@color/colorBlackText"
+        android:fontFamily="sans-serif-black"
+        android:layout_marginStart="@dimen/spacing_large"/>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/vTabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_large_extra"
+        app:layout_constraintTop_toBottomOf="@id/vWoloxImage"
+        app:tabSelectedTextColor="@color/colorWoloxGreen">
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="News" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Profile" />
+
+    </com.google.android.material.tabs.TabLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/vHomeViewPager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/vTabLayout"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

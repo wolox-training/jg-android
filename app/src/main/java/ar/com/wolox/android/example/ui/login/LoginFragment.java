@@ -58,7 +58,7 @@ public class LoginFragment extends WolmoFragment<LoginPresenter> implements ILog
 
     @Override
     public void goToHome() {
-        HomeActivity.start(requireContext());
+        HomeActivity.Companion.start(requireContext());
     }
 
     @Override

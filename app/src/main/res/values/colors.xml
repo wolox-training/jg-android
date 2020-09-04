@@ -9,4 +9,5 @@
     <color name="colorBlueButton">#3BAFDA</color>
     <color name="colorWoloxGreen">#aa91BE5E</color>
     <color name="colorWoloxBlue">#aa3AAEDA</color>
+    <color name="colorBlackText">#000000</color>
 </resources>
