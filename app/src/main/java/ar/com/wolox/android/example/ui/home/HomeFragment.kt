@@ -18,9 +18,7 @@ class HomeFragment private constructor() : WolmoFragment<HomePresenter>(), IHome
     @Inject
     lateinit var profileFragment: ProfileFragment
 
-    override fun layout(): Int {
-        return R.layout.fragment_home
-    }
+    override fun layout(): Int = R.layout.fragment_home
 
     override fun init() {
         vHomeViewPager.adapter = SimpleFragmentPagerAdapter(childFragmentManager).apply {

@@ -10,8 +10,8 @@
 
     <ImageView
         android:id="@+id/vWoloxImage"
-        android:layout_width="74dp"
-        android:layout_height="56dp"
+        android:layout_width="@dimen/home_wolox_image_width"
+        android:layout_height="@dimen/home_wolox_image_height"
         android:layout_marginStart="@dimen/spacing_large"
         android:layout_marginTop="@dimen/spacing_large"
         app:layout_constraintBottom_toTopOf="@+id/vTabLayout"

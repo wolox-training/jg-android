@@ -13,12 +13,9 @@ class HomeActivity : WolmoActivity() {
         replaceFragment(R.id.vActivityBaseContent, HomeFragment.newInstance())
     }
 
-    override fun layout(): Int {
-        return R.layout.activity_base
-    }
+    override fun layout(): Int = R.layout.activity_base
 
     companion object {
-        @JvmStatic
         fun start(context: Context) {
             val intent = Intent(context, HomeActivity::class.java)
             context.startActivity(intent)
