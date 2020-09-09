@@ -39,4 +39,7 @@
     <string name="hello_news_fragment">Hello news fragment</string>
     <string name="hello_profile_fragment">Hello profile fragment</string>
 
+    <!-- News -->
+    <string name="no_data_news_message">No data found</string>
+
 </resources>

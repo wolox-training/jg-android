@@ -6,4 +6,4 @@ import javax.inject.Inject
 /**
  * HomePresenter class
  */
-class HomePresenter @Inject constructor() : BasePresenter<IHomeView?>()
+class HomePresenter @Inject constructor() : BasePresenter<HomeView?>()

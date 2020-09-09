@@ -13,6 +13,8 @@ object Extras {
     object UserLogin {
         const val USERNAME = "username"
         const val USEREMAIL = "useremail"
+        const val USERID = "userid"
+        var userIdLogged: Int? = null
     }
 
     object ViewPager {

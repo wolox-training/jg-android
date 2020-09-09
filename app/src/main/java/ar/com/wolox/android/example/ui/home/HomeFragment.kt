@@ -11,7 +11,7 @@ import javax.inject.Inject
 /**
  * Home Fragment class
  */
-class HomeFragment private constructor() : WolmoFragment<HomePresenter>(), IHomeView {
+class HomeFragment private constructor() : WolmoFragment<HomePresenter>(), HomeView {
     @Inject
     internal lateinit var newsFragment: NewsFragment
 

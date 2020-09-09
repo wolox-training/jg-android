@@ -1,6 +1,6 @@
 package ar.com.wolox.android.example.ui.home
 
 /**
- * ILoginView interface
+ * LoginView interface
  */
-interface IHomeView
+interface HomeView

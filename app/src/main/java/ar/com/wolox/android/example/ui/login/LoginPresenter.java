@@ -1,13 +1,10 @@
 package ar.com.wolox.android.example.ui.login;
 
 import org.jetbrains.annotations.NotNull;
-
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import javax.inject.Inject;
-
 import ar.com.wolox.android.example.model.User;
 import ar.com.wolox.android.example.network.repository.UserRepository;
 import ar.com.wolox.android.example.utils.UserSession;
@@ -19,7 +16,7 @@ import retrofit2.Response;
 /**
  * Class LoginPresenter
  **/
-public class LoginPresenter extends BasePresenter<ILoginView> {
+public class LoginPresenter extends BasePresenter<LoginView> {
     @Inject
     public UserSession userSession;
 
@@ -52,6 +49,7 @@ public class LoginPresenter extends BasePresenter<ILoginView> {
                         getView().showInvalidCredentialsMessage();
                     } else {
                         userSession.setEmail(email);
+                        userSession.setUserid(response.body().get(0).getId());
                         getView().goToHome();
                     }
                 }
@@ -108,4 +106,5 @@ public class LoginPresenter extends BasePresenter<ILoginView> {
         Matcher matcher = pattern.matcher(email);
         return matcher.find();
     }
+
 }
