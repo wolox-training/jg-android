@@ -19,39 +19,10 @@ class NewsPresenter @Inject constructor(private val userSession: UserSession, pr
     }
 
     fun onPullRefresh() {
+        view?.hideNoDataMessage()
         getNews()
         view?.stopRefresh()
     }
-
-    /*fun getNews(): ArrayList<News> {
-        val news: ArrayList<News> = ArrayList()
-        val likesList: List<Int> = listOf(1, 5)
-        val emptylikesList: List<Int> = emptyList()
-
-        news.add(News("2020-07-18T14:00:29.985Z",
-                "¿Famosos y sólo amigos?",
-                "https://bucket1.glanacion.com/anexos/fotos/70/dia-del-amigo-2236070w620.jpg",
-                "Ser súper estrellas e íntimos amigos tiene sus desventajas, al menos para " +
-                        "George. Su esposa, Amal, es muy celosa de Julia e irrumpió varias veces " +
-                        "en las grabaciones de su última peli juntos, aunque nunca pescó nada raro.",
-                likesList))
-        news.add(News("2020-08-18T14:01:38.673Z",
-                "Hipnosis: la nueva vedette de las neurociencias",
-                "https://bucket1.glanacion.com/anexos/fotos/50/2082050.jpg",
-                "Ser súper estrellas e íntimos amigos tiene sus desventajas, al menos para " +
-                        "George. Su esposa, Amal, es muy celosa de Julia e irrumpió varias veces en " +
-                        "las grabaciones de su última peli juntos, aunque nunca pescó nada raro.",
-                likesList))
-        news.add(News("2020-09-05T13:53:13.735Z",
-                "Como cuidar los muebles de cuero",
-                "https://bucket3.glanacion.com/anexos/fotos/28/soluciones-2231528w620.jpg",
-                "Ser súper estrellas e íntimos amigos tiene sus desventajas, al menos para " +
-                        "George. Su esposa, Amal, es muy celosa de Julia e irrumpió varias veces en " +
-                        "las grabaciones de su última peli juntos, aunque nunca pescó nada raro.",
-                emptylikesList))
-
-        return news
-    }*/
 
     private fun getNews() {
         val call: Call<List<News>> = newsRepository.service().getNews()
@@ -62,11 +33,19 @@ class NewsPresenter @Inject constructor(private val userSession: UserSession, pr
 
             override fun onResponse(call: Call<List<News>>, response: Response<List<News>>) {
                 if (response.body()!!.isEmpty()) {
-                    // view?.showNoDataMessage()
+                    view?.showNoDataMessage()
                 } else {
-                    view?.showNewsList(userSession.userid, response.body()!!)
+                    var newsList: List<News> = response.body()!!
+                    newsList = newsList.plus(newsRepository.news[0])
+                    newsList = newsList.plus(newsRepository.news[1])
+                    newsList = newsList.plus(newsRepository.news[2])
+                    view?.showNewsList(userSession.userid, newsList)
                 }
             }
         })
+    }
+
+    fun onScrollList() {
+        view?.showMoreNews(newsRepository.news)
     }
 }

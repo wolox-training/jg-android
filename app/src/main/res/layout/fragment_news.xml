@@ -10,29 +10,32 @@
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/vSwipeRefreshLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/vRecyclerView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:clipToPadding="false"/>
+            android:layout_height="match_parent" />
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="@dimen/static_spacing_huge"
         android:layout_height="@dimen/static_spacing_huge"
+        app:fabCustomSize="@dimen/news_fab_custom_size"
         android:layout_marginStart="@dimen/spacing_largest_more_extra"
         android:layout_marginTop="@dimen/news_spacingfloating_action_button_top"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/ic_plus"/>
 
     <TextView
+        android:id="@+id/vNoDataMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone"
-        android:text="@string/no_data_news_message"/>
+        android:text="@string/no_data_news_message"
+        android:gravity="center" />
 </androidx.constraintlayout.widget.ConstraintLayout>

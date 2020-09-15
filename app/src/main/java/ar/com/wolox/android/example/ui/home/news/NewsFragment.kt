@@ -1,10 +1,12 @@
 package ar.com.wolox.android.example.ui.home.news
 
+import android.view.View
 import android.widget.Toast
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import ar.com.wolox.android.R
 import ar.com.wolox.android.example.model.News
+import ar.com.wolox.android.example.utils.RecyclerViewScrollListener
 import ar.com.wolox.wolmo.core.fragment.WolmoFragment
 import kotlinx.android.synthetic.main.fragment_news.*
 import javax.inject.Inject
@@ -15,6 +17,7 @@ import javax.inject.Inject
 class NewsFragment @Inject constructor() : WolmoFragment<NewsPresenter>(), NewsView {
 
     private val newsAdapter: NewsAdapter = NewsAdapter()
+    var isRecyclerViewLoading: Boolean = false
 
     override fun init() {
         with(vRecyclerView) {
@@ -25,6 +28,17 @@ class NewsFragment @Inject constructor() : WolmoFragment<NewsPresenter>(), NewsV
 
     override fun setListeners() {
         vSwipeRefreshLayout.setOnRefreshListener { presenter.onPullRefresh() }
+        vRecyclerView.addOnScrollListener(object : RecyclerViewScrollListener(vRecyclerView.layoutManager as LinearLayoutManager) {
+
+            override fun isLoading(): Boolean {
+                return isRecyclerViewLoading
+            }
+
+            override fun loadMoreItems() {
+                isRecyclerViewLoading = true
+                presenter.onScrollList()
+            }
+        })
     }
 
     override fun layout() = R.layout.fragment_news
@@ -39,13 +53,23 @@ class NewsFragment @Inject constructor() : WolmoFragment<NewsPresenter>(), NewsV
     }
 
     override fun showNetworkErrorMessage() {
-        val message: CharSequence = requireContext().getString(R.string.login_network_error)
-        val toast = Toast.makeText(context, message, Toast.LENGTH_SHORT)
+        val toast = Toast.makeText(requireContext(),
+                resources.getString(R.string.login_network_error),
+                Toast.LENGTH_SHORT)
         toast.show()
     }
 
     override fun showNoDataMessage() {
-        TODO("Not yet implemented")
+        vNoDataMessage.visibility = View.VISIBLE
+    }
+
+    override fun hideNoDataMessage() {
+        vNoDataMessage.visibility = View.GONE
+    }
+
+    override fun showMoreNews(news: List<News>) {
+        isRecyclerViewLoading = false
+        newsAdapter.addData(news)
     }
 
     companion object {

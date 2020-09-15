@@ -16,12 +16,12 @@ import kotlinx.android.synthetic.main.fragment_news_item.view.*
  * Recycler Adapter class
  * **/
 class NewsAdapter : RecyclerView.Adapter<NewsAdapter.NewsHolder>() {
-    private var news: List<News> = ArrayList()
+    private var news: MutableList<News> = mutableListOf()
     private lateinit var context: Context
     private var userId: Int = 0
 
     fun newsAdapter(news: List<News>, userId: Int, context: Context) {
-        this.news = news
+        this.news.addAll(news)
         this.context = context
         this.userId = userId
     }
@@ -38,6 +38,13 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.NewsHolder>() {
     override fun onBindViewHolder(newsHolder: NewsHolder, position: Int) {
         val item = news[position]
         newsHolder.bindItems(item, userId)
+    }
+
+    fun addData(newsList: List<News>) {
+        val size = itemCount
+        this.news.addAll(newsList)
+        val sizeNew = this.news.size
+        notifyItemRangeChanged(size, sizeNew)
     }
 
     class NewsHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -58,7 +65,7 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.NewsHolder>() {
             Glide.with(context)
                     .load(url.toHttps())
                     .placeholder(R.drawable.login_cover)
-                    .into(vNewsImage)
+                    .into(this)
         }
 
         private fun getNewsLikeImage(newsLike: List<Int>, userId: Int): Int {

@@ -9,5 +9,9 @@ interface NewsView {
 
     fun showNoDataMessage()
 
+    fun hideNoDataMessage()
+
     fun stopRefresh()
+
+    fun showMoreNews(news: List<News>)
 }

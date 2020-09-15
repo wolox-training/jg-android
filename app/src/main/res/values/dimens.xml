@@ -60,12 +60,12 @@
 
     <!-- News -->
     <dimen name="news_static_spacing_large">25dp</dimen>
-    <dimen name="news_image_height">46dp</dimen>
-    <dimen name="news_image_width">46dp</dimen>
+    <dimen name="news_title_spacing_end">50dp</dimen>
+    <dimen name="news_fab_custom_size">50dp</dimen>
+    <dimen name="news_title_desciption_end">65dp</dimen>
     <dimen name="news_list_divisor">90dp</dimen>
     <dimen name="news_image_dimens">80dp</dimen>
+    <dimen name="news_title_description_width">180dp</dimen>
     <dimen name="news_spacingfloating_action_button_top">180dp</dimen>
-    <dimen name="news_title_width">200dp</dimen>
-    <dimen name="news_title_description_width">250dp</dimen>
 
 </resources>

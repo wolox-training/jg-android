@@ -7,7 +7,7 @@ import com.google.gson.annotations.SerializedName
  * **/
 data class News(
     @SerializedName("createdAt")
-val createdAt: String,
+    val createdAt: String,
     val title: String,
     val picture: String,
     val text: String,

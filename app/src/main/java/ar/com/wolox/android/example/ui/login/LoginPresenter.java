@@ -106,5 +106,4 @@ public class LoginPresenter extends BasePresenter<LoginView> {
         Matcher matcher = pattern.matcher(email);
         return matcher.find();
     }
-
 }
