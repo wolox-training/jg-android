@@ -55,7 +55,7 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.NewsHolder>() {
                 vNewsDescription.text = news.text
                 vNewsImage.loadUrl(news.picture)
                 vNewsTime.text = CalculateTimeInterval.calculate(news.createdAt).toString() + " d"
-                vNewsLike.setImageResource(getNewsLikeImage(news.likes, userId))
+                vNewsLike.isSelected = news.likes.contains(userId)
             }
         }
 
@@ -66,14 +66,6 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.NewsHolder>() {
                     .load(url.toHttps())
                     .placeholder(R.drawable.login_cover)
                     .into(this)
-        }
-
-        private fun getNewsLikeImage(newsLike: List<Int>, userId: Int): Int {
-            if (newsLike.contains(userId)) {
-                return R.drawable.ic_like_on
-            }
-
-            return R.drawable.ic_like_off
         }
     }
 }
