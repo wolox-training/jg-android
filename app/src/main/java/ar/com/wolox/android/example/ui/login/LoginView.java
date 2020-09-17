@@ -1,9 +1,9 @@
 package ar.com.wolox.android.example.ui.login;
 
 /**
- * ILoginView interface
+ * LoginView interface
  **/
-public interface ILoginView {
+public interface LoginView {
 
     void showEmailEmptyError();
 

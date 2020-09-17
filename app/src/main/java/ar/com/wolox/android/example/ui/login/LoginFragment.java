@@ -16,7 +16,7 @@ import ar.com.wolox.wolmo.core.fragment.WolmoFragment;
 /**
  * Class Login Fragment
  */
-public class LoginFragment extends WolmoFragment<LoginPresenter> implements ILoginView {
+public class LoginFragment extends WolmoFragment<LoginPresenter> implements LoginView {
 
     private Button loginButton;
     private Button signUpButton;
