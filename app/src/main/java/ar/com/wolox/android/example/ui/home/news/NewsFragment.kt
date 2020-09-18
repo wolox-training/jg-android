@@ -1,7 +1,9 @@
 package ar.com.wolox.android.example.ui.home.news
 
+import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import ar.com.wolox.android.R
@@ -14,7 +16,7 @@ import javax.inject.Inject
 /**
  * New Fragment class
  */
-class NewsFragment @Inject constructor() : WolmoFragment<NewsPresenter>(), NewsView {
+class NewsFragment @Inject constructor() : WolmoFragment<NewsPresenter>(), NewsView, NewsOnClickListener {
 
     private val newsAdapter: NewsAdapter = NewsAdapter()
     var isRecyclerViewLoading: Boolean = false
@@ -48,7 +50,7 @@ class NewsFragment @Inject constructor() : WolmoFragment<NewsPresenter>(), NewsV
     }
 
     override fun showNewsList(userId: Int, news: List<News>) {
-        newsAdapter.newsAdapter(news, userId, requireContext())
+        newsAdapter.newsAdapter(news, userId, this)
         vRecyclerView.adapter = newsAdapter
     }
 
@@ -70,6 +72,27 @@ class NewsFragment @Inject constructor() : WolmoFragment<NewsPresenter>(), NewsV
     override fun showMoreNews(news: List<News>) {
         isRecyclerViewLoading = false
         newsAdapter.addData(news)
+    }
+
+    override fun clearNewsList() {
+        newsAdapter.clearData()
+    }
+
+    override fun onClickListener(news: News) {
+        val dataToSend = Bundle()
+        val newsDetailFragment: NewsDetailFragment = NewsDetailFragment.newInstance()
+        val fragmentTransaction: FragmentTransaction = requireActivity().supportFragmentManager.beginTransaction()
+
+        dataToSend.putInt("id", news.id!!)
+        dataToSend.putString("title", news.title)
+        dataToSend.putString("text", news.text)
+        dataToSend.putString("picture", news.picture)
+        dataToSend.putString("createdAt", news.createdAt)
+        dataToSend.putIntArray("likes", news.likes?.toIntArray())
+        newsDetailFragment.arguments = dataToSend
+        fragmentTransaction.replace(R.id.vActivityBaseContent, newsDetailFragment)
+        fragmentTransaction.addToBackStack(null)
+        fragmentTransaction.commit()
     }
 
     companion object {

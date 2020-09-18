@@ -1,15 +1,13 @@
 package ar.com.wolox.android.example.ui.home.news
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import ar.com.wolox.android.R
 import ar.com.wolox.android.example.model.News
 import ar.com.wolox.android.example.utils.CalculateTimeInterval
-import com.bumptech.glide.Glide
+import ar.com.wolox.android.example.utils.ImageUtils
 import kotlinx.android.synthetic.main.fragment_news_item.view.*
 
 /**
@@ -17,13 +15,13 @@ import kotlinx.android.synthetic.main.fragment_news_item.view.*
  * **/
 class NewsAdapter : RecyclerView.Adapter<NewsAdapter.NewsHolder>() {
     private var news: MutableList<News> = mutableListOf()
-    private lateinit var context: Context
     private var userId: Int = 0
+    private lateinit var newsFragment: NewsFragment
 
-    fun newsAdapter(news: List<News>, userId: Int, context: Context) {
+    fun newsAdapter(news: List<News>, userId: Int, newsFragment: NewsFragment) {
         this.news.addAll(news)
-        this.context = context
         this.userId = userId
+        this.newsFragment = newsFragment
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsHolder {
@@ -38,6 +36,9 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.NewsHolder>() {
     override fun onBindViewHolder(newsHolder: NewsHolder, position: Int) {
         val item = news[position]
         newsHolder.bindItems(item, userId)
+        newsHolder.itemView.setOnClickListener {
+            this.newsFragment.onClickListener(item)
+        }
     }
 
     fun addData(newsList: List<News>) {
@@ -47,25 +48,22 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.NewsHolder>() {
         notifyItemRangeChanged(size, sizeNew)
     }
 
+    fun clearData() {
+        val size: Int = this.news.size
+        this.news.clear()
+        notifyItemRangeRemoved(0, size)
+    }
+
     class NewsHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bindItems(news: News, userId: Int) {
             with(itemView) {
                 vNewsTitle.text = news.title
                 vNewsDescription.text = news.text
-                vNewsImage.loadUrl(news.picture)
-                vNewsTime.text = CalculateTimeInterval.calculate(news.createdAt).toString() + " d"
-                vNewsLike.isSelected = news.likes.contains(userId)
+                news.picture?.let { ImageUtils.loadImage(vNewsImage, it, R.drawable.login_cover, context) }
+                vNewsTime.text = CalculateTimeInterval.calculate(news.createdAt!!).toString() + " d"
+                vNewsLike.isSelected = news.likes!!.contains(userId)
             }
-        }
-
-        private fun String.toHttps(): String = this.replace("http://", "https://")
-
-        private fun ImageView.loadUrl(url: String) {
-            Glide.with(context)
-                    .load(url.toHttps())
-                    .placeholder(R.drawable.login_cover)
-                    .into(this)
         }
     }
 }

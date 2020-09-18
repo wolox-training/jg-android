@@ -59,6 +59,7 @@
     <dimen name="home_wolox_image_width">74dp</dimen>
 
     <!-- News -->
+    <dimen name="news_image_margin_top">18dp</dimen>
     <dimen name="news_static_spacing_large">25dp</dimen>
     <dimen name="news_title_spacing_end">50dp</dimen>
     <dimen name="news_fab_custom_size">50dp</dimen>
@@ -67,5 +68,10 @@
     <dimen name="news_image_dimens">80dp</dimen>
     <dimen name="news_title_description_width">180dp</dimen>
     <dimen name="news_spacingfloating_action_button_top">180dp</dimen>
+
+    <!-- News Detail -->
+    <dimen name="news_detail_text_height">100dp</dimen>
+    <dimen name="news_detail_title_width">250dp</dimen>
+    <dimen name="news_background_image_height">300dp</dimen>
 
 </resources>

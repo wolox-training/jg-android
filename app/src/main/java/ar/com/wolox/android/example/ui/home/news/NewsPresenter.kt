@@ -20,6 +20,7 @@ class NewsPresenter @Inject constructor(private val userSession: UserSession, pr
 
     fun onPullRefresh() {
         view?.hideNoDataMessage()
+        view?.clearNewsList()
         getNews()
         view?.stopRefresh()
     }

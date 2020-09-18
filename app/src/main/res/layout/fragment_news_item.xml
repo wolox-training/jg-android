@@ -10,10 +10,10 @@
 
     <ImageView
         android:id="@+id/vNewsImage"
-        android:layout_width="@dimen/static_spacing_huge_extra"
-        android:layout_height="@dimen/static_spacing_largest"
+        android:layout_width="@dimen/spacing_huge_extra"
+        android:layout_height="@dimen/spacing_huge_extra"
         android:layout_marginStart="@dimen/static_spacing_medium_extra"
-        android:layout_marginTop="@dimen/spacing_medium"
+        android:layout_marginTop="@dimen/news_image_margin_top"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
