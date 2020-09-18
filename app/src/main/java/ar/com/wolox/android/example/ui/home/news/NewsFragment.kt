@@ -22,6 +22,7 @@ class NewsFragment @Inject constructor() : WolmoFragment<NewsPresenter>(), NewsV
     var isRecyclerViewLoading: Boolean = false
 
     override fun init() {
+        newsAdapter.clearData()
         with(vRecyclerView) {
             layoutManager = LinearLayoutManager(requireContext())
             addItemDecoration(DividerItemDecoration(requireContext(), LinearLayoutManager.VERTICAL))

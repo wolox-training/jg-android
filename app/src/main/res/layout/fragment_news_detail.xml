@@ -54,7 +54,7 @@
             android:id="@+id/vNewsTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/news_static_spacing_large"
+            android:layout_marginTop="@dimen/spacing_big"
             android:layout_marginEnd="@dimen/static_spacing_medium_extra"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/vNewsImage" />
@@ -70,8 +70,8 @@
 
         <ImageView
             android:id="@+id/vNewsLike"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/spacing_huge_extra"
+            android:layout_height="@dimen/spacing_huge_extra"
             android:layout_marginTop="@dimen/spacing_big_extra"
             android:src="@drawable/news_like_icon"
             app:layout_constraintEnd_toEndOf="parent"

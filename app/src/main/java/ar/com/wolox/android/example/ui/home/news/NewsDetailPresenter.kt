@@ -38,7 +38,8 @@ class NewsDetailPresenter @Inject constructor(private val newsRepository: NewsRe
 
     fun toggleNewsLike() {
         view?.disableLikeButton()
-        news?.likes?.remove(userSession.userid)
+
+        if (!news?.likes?.remove(userSession.userid)!!) news!!.likes?.add(userSession.userid)
 
         val call: Call<News> = newsRepository.service().updateNewSelected(news?.id!!, news!!)
         call.enqueue(object : Callback<News> {
