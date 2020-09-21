@@ -14,4 +14,6 @@ interface NewsView {
     fun stopRefresh()
 
     fun showMoreNews(news: List<News>)
+
+    fun clearNewsList()
 }

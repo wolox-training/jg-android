@@ -42,4 +42,8 @@
     <!-- News -->
     <string name="no_data_news_message">No data found</string>
 
+    <!--News Detail-->
+    <string name="news_back_text">Post</string>
+    <string name="news_toggle_like_successfully">Toggle like successfully</string>
+
 </resources>
